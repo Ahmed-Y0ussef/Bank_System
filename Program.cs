@@ -17,31 +17,24 @@ namespace Main
             //);
 
 
-            Employee emp1=new Employee();
-            client cli1=new client();
-            Employee emp2=new Employee();
-            client cli2 = new client();
-            Console.WriteLine(emp1.Id);
-            Console.WriteLine(emp2.Id);
-            Console.WriteLine(cli1.Id);
-            Console.WriteLine(cli2.Id);
 
 
-            //Console.WriteLine("1-Bank Sysem\n2-ATM\nselect option from(1-2)");
-            //int userInput = int.Parse(Console.ReadLine());
-            //switch (userInput)
-            //{
-            //    case 1:
-            //        BankSystem();
-            //        break;
-            //    case 2:
-            //        Atm();
-            //        break;
-            //    default: 
-            //        Console.WriteLine("invalid input try again");
-            //        Main();
-            //        break;
-            //}
+
+            Console.WriteLine("1-Bank Sysem\n2-ATM\nselect option from(1-2)");
+            int userInput = int.Parse(Console.ReadLine());
+            switch (userInput)
+            {
+                case 1:
+                    BankSystem();
+                    break;
+                case 2:
+                    Atm();
+                    break;
+                default:
+                    Console.WriteLine("invalid input try again");
+                    Main();
+                    break;
+            }
 
 
 

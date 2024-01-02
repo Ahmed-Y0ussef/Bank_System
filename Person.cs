@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Main
 {
-    public class Person
+    abstract public class Person
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -19,13 +19,10 @@ namespace Main
             this.UserName = username;
 
         }
-        protected  int idIncrement()
-        {
-            return Id++;
-        }
-        public Person()
-        {
+        protected abstract void idIncrement();
+        
             
-        }
+        
+        
     }
 }
