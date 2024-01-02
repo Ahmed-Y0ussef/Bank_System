@@ -6,16 +6,16 @@ namespace Main
     {
         static void Main()
         {
-            //            Console.WriteLine(
-            //@"
-            //*       *       *  *******  *       ******    ******        *       *          *******    ******          ******    *     *  ******       ******       *      *     *  *   *
-            // *     * *     *   *        *      *         *      *      * *     * *            *      *      *        *      *   *     *  *     *      *     *     * *     * *   *  *  *
-            //  *   *   *   *    *******  *     *         *        *    *   *   *   *           *     *        *      *        *  *     *  ******       ******     *   *    *  *  *  ***   
-            //   * *     * *     *        *      *         *      *    *     * *     *          *      *      *        *      *   *     *  *   *        *     *   *******   *   * *  *  *
-            //    *       *      *******  ****    ******    ******    *       *       *         *       ******          ******     *****   *    *       ******   *       *  *     *  *   *
-            //"
-            //);
-
+            Console.WriteLine(
+@"
+            *       *       *  *******  *       ******    ******        *       *          *******    ******          ******    *     *  ******       ******       *      *     *  *   *
+             *     * *     *   *        *      *         *      *      * *     * *            *      *      *        *      *   *     *  *     *      *     *     * *     * *   *  *  *
+              *   *   *   *    *******  *     *         *        *    *   *   *   *           *     *        *      *        *  *     *  ******       ******     *   *    *  *  *  ***   
+               * *     * *     *        *      *         *      *    *     * *     *          *      *      *        *      *   *     *  *   *        *     *   *******   *   * *  *  *
+                *       *      *******  ****    ******    ******    *       *       *         *       ******          ******     *****   *    *       ******   *       *  *     *  *   *
+            "
+);
+            // leoooooooo 
 
             Employee emp1=new Employee();
             client cli1=new client();
@@ -27,21 +27,21 @@ namespace Main
             Console.WriteLine(cli2.Id);
 
 
-            //Console.WriteLine("1-Bank Sysem\n2-ATM\nselect option from(1-2)");
-            //int userInput = int.Parse(Console.ReadLine());
-            //switch (userInput)
-            //{
-            //    case 1:
-            //        BankSystem();
-            //        break;
-            //    case 2:
-            //        Atm();
-            //        break;
-            //    default: 
-            //        Console.WriteLine("invalid input try again");
-            //        Main();
-            //        break;
-            //}
+            Console.WriteLine("1-Bank Sysem\n2-ATM\nselect option from(1-2)");
+            int userInput = int.Parse(Console.ReadLine());
+            switch (userInput)
+            {
+                case 1:
+                    BankSystem();
+                    break;
+                case 2:
+                    Atm();
+                    break;
+                default:
+                    Console.WriteLine("invalid input try again");
+                    Main();
+                    break;
+            }
 
 
 

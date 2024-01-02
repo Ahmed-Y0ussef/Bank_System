@@ -10,6 +10,7 @@ namespace Main
     {
         public double Balance {  get; set; }
         public string Type { get; set; }
+        public string name { get; set; }
         public Acount(double balance, string type) 
         { 
             this.Balance = balance;
