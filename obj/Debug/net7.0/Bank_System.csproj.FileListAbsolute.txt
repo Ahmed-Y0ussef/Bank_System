@@ -1,0 +1,14 @@
+D:\ITI\c#\DAY07\Bank System\bin\Debug\net7.0\Bank_System.exe
+D:\ITI\c#\DAY07\Bank System\bin\Debug\net7.0\Bank_System.deps.json
+D:\ITI\c#\DAY07\Bank System\bin\Debug\net7.0\Bank_System.runtimeconfig.json
+D:\ITI\c#\DAY07\Bank System\bin\Debug\net7.0\Bank_System.dll
+D:\ITI\c#\DAY07\Bank System\bin\Debug\net7.0\Bank_System.pdb
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\Bank_System.GeneratedMSBuildEditorConfig.editorconfig
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\Bank_System.AssemblyInfoInputs.cache
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\Bank_System.AssemblyInfo.cs
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\Bank_System.csproj.CoreCompileInputs.cache
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\Bank_System.dll
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\refint\Bank_System.dll
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\Bank_System.pdb
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\Bank_System.genruntimeconfig.cache
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\ref\Bank_System.dll

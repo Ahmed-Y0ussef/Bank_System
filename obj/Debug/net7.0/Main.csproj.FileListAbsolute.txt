@@ -1,0 +1,14 @@
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\Main.GeneratedMSBuildEditorConfig.editorconfig
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\Main.AssemblyInfoInputs.cache
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\Main.AssemblyInfo.cs
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\Main.csproj.CoreCompileInputs.cache
+D:\ITI\c#\DAY07\Bank System\bin\Debug\net7.0\Main.exe
+D:\ITI\c#\DAY07\Bank System\bin\Debug\net7.0\Main.deps.json
+D:\ITI\c#\DAY07\Bank System\bin\Debug\net7.0\Main.runtimeconfig.json
+D:\ITI\c#\DAY07\Bank System\bin\Debug\net7.0\Main.dll
+D:\ITI\c#\DAY07\Bank System\bin\Debug\net7.0\Main.pdb
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\Main.dll
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\refint\Main.dll
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\Main.pdb
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\Main.genruntimeconfig.cache
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\ref\Main.dll
