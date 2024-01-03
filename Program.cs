@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Bank_System;
 using Newtonsoft.Json;
 
 namespace Main
@@ -7,15 +8,23 @@ namespace Main
     {
         static void Main()
         {
+            Manager m1= new Manager();
+            m1.DeleteEmployee(1);
+            foreach (var em in m1.employees)
+            {
+                Console.WriteLine(em.Name);
+                Console.WriteLine(em.Password);
+                Console.WriteLine(em.Id);
 
+            }
             // Welcome
             Console.WriteLine(
 @"
-    *       *       *  * * * *   *          * * * *     * * * *         *       *      * * * *     
-     *     * *     *   *         *         *           *       *       * *     * *     *               
-      *   *   *   *    * * * *   *        *           *         *     *   *   *   *    * * * *         
-       * *     * *     *         *         *           *       *     *     * *     *   *               
-        *       *      * * * *   * * * *    * * * *     * * * *     *       *       *  * * * *         
+  *       *       *  * * * *   *          * * * *     * * * *         *       *      * * * *     
+   *     * *     *   *         *         *           *       *       * *     * *     *               
+    *   *   *   *    * * * *   *        *           *         *     *   *   *   *    * * * *         
+     * *     * *     *         *         *           *       *     *     * *     *   *               
+      *       *      * * * *   * * * *    * * * *     * * * *     *       *       *  * * * *         
 
  * * * *    * * * *          * * * *    *     *  * * * *       * * * *       *      *     *  *   *
     *      *       *        *       *   *     *  *      *      *      *     * *     * *   *  *  *
@@ -27,7 +36,7 @@ namespace Main
 
             
             //Bank System or ATM
-            Console.WriteLine("1-Bank System\n2-ATM\nselect option from ( 1 - 2 )");
+            Console.WriteLine("1- Bank System\n2- ATM\nselect option from ( 1 - 2 )");
             int userInput = int.Parse(Console.ReadLine());
             switch (userInput)
             {
@@ -48,11 +57,23 @@ namespace Main
         static void Atm()
         {
             Login();
+            Console.WriteLine("1- Wihdraw\n2- Deposit\n3- Transfer\n4- Check Balance\n5- Shaw my informaion\nselect option from ( 1 - 2 - 3 - 4 - 5 )");
             int userInput=int.Parse(Console.ReadLine());
             switch(userInput)
             {
                 case 1:
-
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                default:
+                    Console.WriteLine("invalid input try again");
+                    Atm();
                     break;
             }
         }
@@ -71,7 +92,7 @@ namespace Main
                     Emp();
                     break;
                 case 3:
-                    Manager();
+                    Manage();
                     break;
                 default:
                     Console.WriteLine("invalid input try again");
@@ -89,13 +110,14 @@ namespace Main
             string password =Console.ReadLine();
 
         }
-
+        
         //Manger
-        static void Manager()
+        static void Manage()
         {
             Login();
             Console.WriteLine("1-add employee\n2-remove employee\nselect option(1-2)");
             int managerInput = int.Parse(Console.ReadLine());
+            Manager m1 =new Manager();
             switch(managerInput)
             {
                 case 1:
@@ -103,9 +125,10 @@ namespace Main
                     Console.WriteLine("enter name of the employee");
                     string empName = Console.ReadLine();
                     Console.WriteLine("enter password for the employee");
-                    string empPassword=Console.ReadLine();
+                    string empPassword = Console.ReadLine();
                     Employee emp= new Employee(empName, empPassword);
- 
+                    m1.AddEmployee(emp);
+                    
                     break;
                 case 2:
                     Console.WriteLine("enter employee id");
@@ -113,7 +136,7 @@ namespace Main
                     break;
                 default: 
                     Console.WriteLine("invalid input try again ");
-                    Manager();
+                    Manage();
                     break;
             }
         }

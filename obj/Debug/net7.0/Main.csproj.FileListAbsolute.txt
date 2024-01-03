@@ -26,3 +26,6 @@ D:\Projects\Bank_System\obj\Debug\net7.0\refint\Main.dll
 D:\Projects\Bank_System\obj\Debug\net7.0\Main.pdb
 D:\Projects\Bank_System\obj\Debug\net7.0\Main.genruntimeconfig.cache
 D:\Projects\Bank_System\obj\Debug\net7.0\ref\Main.dll
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\Main.csproj.AssemblyReference.cache
+D:\ITI\c#\DAY07\Bank System\bin\Debug\net7.0\Newtonsoft.Json.dll
+D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\Main.csproj.CopyComplete
