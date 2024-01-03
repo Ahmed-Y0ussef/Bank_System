@@ -23,7 +23,7 @@ namespace Main
             ");
 
             //Bank System or ATM
-            Console.WriteLine("1-Bank System\n2-ATM\nselect option from ( 1 - 2 )");
+            Console.WriteLine("1- Bank System\n2- ATM\nselect option from ( 1 - 2 )");
             int userInput = int.Parse(Console.ReadLine());
             switch (userInput)
             {
@@ -44,11 +44,23 @@ namespace Main
         static void Atm()
         {
             Login();
+            Console.WriteLine("1- Wihdraw\n2- Deposit\n3- Transfer\n4- Check Balance\n5- Shaw my informaion\nselect option from ( 1 - 2 - 3 - 4 - 5 )");
             int userInput=int.Parse(Console.ReadLine());
             switch(userInput)
             {
                 case 1:
-
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                default:
+                    Console.WriteLine("invalid input try again");
+                    Main();
                     break;
             }
         }
@@ -101,8 +113,6 @@ namespace Main
                     Console.WriteLine("enter employee id");
                     int empId = int.Parse(Console.ReadLine());
                     Console.WriteLine("enter user name for this employee");
-                    string empUserName = Console.ReadLine();
-                    Console.WriteLine("enter password for the employee");
                     string empPassword = Console.ReadLine();
                     Employee emp= new Employee(empName, empPassword);
                     break;
