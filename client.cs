@@ -6,24 +6,28 @@ using System.Threading.Tasks;
 
 namespace Main
 {
-    public class client:Person
+    public class Client : Person
     {
+        //Atttibutes
+        public double Balance {  get; set; }
+        public bool IsDebit { get; set; }
+
+        //Static Attribute
         static int clientCount {  get; set; }
-        public Acount Acount { get; set; }
+
+        //Constructor        
+        public Client(string name, string password, double balance, bool isDebit) :base(name, password)
+        {
+            this.Balance = balance;
+            this.IsDebit = isDebit;
+            idIncrement();
+        }
+
+        //Abstracted Method
         protected override void idIncrement()
         {
             clientCount++;
             Id = clientCount;
         }
-        public client(double balance,string name,string username,string password):base(name,username,password)
-        {
-            Acount.Balance = balance;
-            idIncrement();
-        }
-
-        
-
-
-
     }
 }
