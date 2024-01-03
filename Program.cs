@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Newtonsoft.Json;
 
 namespace Main
 {
@@ -6,6 +7,8 @@ namespace Main
     {
         static void Main()
         {
+            List<Employee> employees = new List<Employee>();
+            List<client> clients = new List<client>();
             //            Console.WriteLine(
             //@"
             //*       *       *  *******  *       ******    ******        *       *          *******    ******          ******    *     *  ******       ******       *      *     *  *   *
@@ -54,7 +57,6 @@ namespace Main
         {
             Console.WriteLine("1-manager\n2-employee\n3-client\nselect option from()1-3");
             int userInput=int.Parse(Console.ReadLine());
-
             switch (userInput)
             {
                 case 1:
@@ -97,7 +99,7 @@ namespace Main
                     string empUserName =Console.ReadLine();
                     Console.WriteLine("enter password for the employee");
                     string empPassword=Console.ReadLine();
-                    Employee emp= new Employee(empName,empUserName,empPassword);
+                    
                     break;
                 case "remove":
                     Console.WriteLine("enter employee id");
