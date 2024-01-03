@@ -8,14 +8,23 @@ namespace Main
 {
     public class Employee:Person
     {
-        public Employee(string name,string username ,string password):base(name,username,password) 
+        //Atttibutes
+        public double Salary {  get; set; }
+
+        //Static Attribute
+        static int EmpCount {  get; set; }
+
+        //Constructor
+        public Employee(string name, string password) :base(name, password) 
         {
-            base.Id=base.idIncrement();
-            
+            idIncrement();
         }
-        public Employee()
+
+        //Abstracted Method
+        protected override void idIncrement()
         {
-            Id++;
+            EmpCount++;
+            Id = EmpCount;
         }
     }
 }

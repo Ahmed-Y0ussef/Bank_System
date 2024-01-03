@@ -6,28 +6,24 @@ namespace Main
     {
         static void Main()
         {
+            // Welcome
             Console.WriteLine(
 @"
-            *       *       *  *******  *       ******    ******        *       *          *******    ******          ******    *     *  ******       ******       *      *     *  *   *
-             *     * *     *   *        *      *         *      *      * *     * *            *      *      *        *      *   *     *  *     *      *     *     * *     * *   *  *  *
-              *   *   *   *    *******  *     *         *        *    *   *   *   *           *     *        *      *        *  *     *  ******       ******     *   *    *  *  *  ***   
-               * *     * *     *        *      *         *      *    *     * *     *          *      *      *        *      *   *     *  *   *        *     *   *******   *   * *  *  *
-                *       *      *******  ****    ******    ******    *       *       *         *       ******          ******     *****   *    *       ******   *       *  *     *  *   *
-            "
-);
-            // leoooooooo 
+    *       *       *  * * * *   *          * * * *     * * * *         *       *      * * * *     
+     *     * *     *   *         *         *           *       *       * *     * *     *               
+      *   *   *   *    * * * *   *        *           *         *     *   *   *   *    * * * *         
+       * *     * *     *         *         *           *       *     *     * *     *   *               
+        *       *      * * * *   * * * *    * * * *     * * * *     *       *       *  * * * *         
 
-            Employee emp1=new Employee();
-            client cli1=new client();
-            Employee emp2=new Employee();
-            client cli2 = new client();
-            Console.WriteLine(emp1.Id);
-            Console.WriteLine(emp2.Id);
-            Console.WriteLine(cli1.Id);
-            Console.WriteLine(cli2.Id);
+ * * * *    * * * *          * * * *    *     *  * * * *       * * * *       *      *     *  *   *
+    *      *       *        *       *   *     *  *      *      *      *     * *     * *   *  *  *
+    *     *         *      *         *  *     *  * * * *       * * * *     *   *    *  *  *  * *   
+    *      *       *        *       *   *     *  *    *        *      *   * * * *   *   * *  *  *
+    *       * * * *          * * * *     * * *   *     *       * * * *   *       *  *     *  *   *
+            ");
 
-
-            Console.WriteLine("1-Bank Sysem\n2-ATM\nselect option from(1-2)");
+            //Bank System or ATM
+            Console.WriteLine("1-Bank System\n2-ATM\nselect option from ( 1 - 2 )");
             int userInput = int.Parse(Console.ReadLine());
             switch (userInput)
             {
@@ -42,13 +38,12 @@ namespace Main
                     Main();
                     break;
             }
-
-
-
         }
+
+        //ATM
         static void Atm()
         {
-            Console.WriteLine("1-Credit\n2-Depit\nselect option from (1-2)");
+            Login();
             int userInput=int.Parse(Console.ReadLine());
             switch(userInput)
             {
@@ -57,21 +52,23 @@ namespace Main
                     break;
             }
         }
+
+        //Bank System
         static void BankSystem()
         {
-            Console.WriteLine("1-manager\n2-employee\n3-client\nselect option from()1-3");
+            Console.WriteLine("1- Client\n2- Employee\n3- Manager\nselect option from ( 1 - 2 - 3 )");
             int userInput=int.Parse(Console.ReadLine());
 
             switch (userInput)
             {
                 case 1:
-                    Manager();
+                    Client();
                     break;
                 case 2:
                     Emp();
                     break;
                 case 3:
-                    Client();
+                    Manager();
                     break;
                 default:
                     Console.WriteLine("invalid input try again");
@@ -80,31 +77,34 @@ namespace Main
             }
         }
 
+        //Login
         static void Login()
         {
-            Console.WriteLine("enter your id ");
+            Console.WriteLine("enter your id:");
             int id=int.Parse(Console.ReadLine());
-            Console.WriteLine("enter your password");
+            Console.WriteLine("enter your password:");
             string password =Console.ReadLine();
 
         }
+
+        //Manger
         static void Manager()
         {
             Login();
             Console.WriteLine("choose add or remove employee");
-            string managerInput=Console.ReadLine();
+            string managerInput = Console.ReadLine();
             switch(managerInput)
             {
                 case "add":
                     Console.WriteLine("enter name of the employee");
-                    string empName=Console.ReadLine();
+                    string empName = Console.ReadLine();
                     Console.WriteLine("enter employee id");
-                    int empId=int.Parse(Console.ReadLine());
+                    int empId = int.Parse(Console.ReadLine());
                     Console.WriteLine("enter user name for this employee");
-                    string empUserName =Console.ReadLine();
+                    string empUserName = Console.ReadLine();
                     Console.WriteLine("enter password for the employee");
-                    string empPassword=Console.ReadLine();
-                    Employee emp= new Employee(empName,empUserName,empPassword);
+                    string empPassword = Console.ReadLine();
+                    Employee emp= new Employee(empName, empPassword);
                     break;
                 case "remove":
                     Console.WriteLine("enter employee id");
@@ -141,14 +141,14 @@ namespace Main
                     default : Console.WriteLine("invalid input tray again");
                     Emp(); 
                     break;
-
             }
-
         }
+
+        //Client
         static void Client( )
         {
             Login();
-            Console.WriteLine("1-with draw\n2-deposite\n3-transfer\n4-nearest atm location");
+            Console.WriteLine("1-withdraw\n2-deposite\n3-transfer\n4-nearest atm location");
         }
     }
 }
