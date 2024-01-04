@@ -11,7 +11,7 @@ namespace Main
         //Atttibutes
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Password {  get; set; }
+        public string Password { get; set; }
 
         //Constructor
         public Person(int id, string name, string password)
@@ -21,5 +21,7 @@ namespace Main
             this.Password = password;
         }
 
+        //Abstracted Method
+        protected abstract void idIncrement();
     }
 }

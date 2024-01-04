@@ -10,7 +10,7 @@ namespace Main
     public class Client : Person
     {
         //Atttibutes
-        public double Balance {  get; set; }
+        public double Balance { get; set; }
         public bool IsDebit { get; set; }
 
         //Static Attribute
@@ -18,16 +18,14 @@ namespace Main
 
 
         const string FilePath = "C:\\Users\\drnad\\Source\\Repos\\Bank_System\\clients.json";
-        public  List<Client> Clients;
+        public List<Client> Clients;
 
         //Constructor        
-        public Client(int id,string name, string password, double balance, bool isDebit) : base (id,name, password)
+        public Client(int id, string name, string password, double balance, bool isDebit) : base(id, name, password)
         {
-        
+
             this.Balance = balance;
             this.IsDebit = isDebit;
-           
-            
         }
 
         //Methods
@@ -44,7 +42,7 @@ namespace Main
             File.WriteAllText(FilePath, Json);
         }
 
-        public void Withdraw (double amount)
+        public void Withdraw(double amount)
         {
             if (IsDebit)
             {
@@ -90,7 +88,7 @@ namespace Main
         }
         public double GetBalance()
         {
-            return Balance; 
+            return Balance;
         }
         public string AccountType()
         {
@@ -102,7 +100,7 @@ namespace Main
 
         //public  List<Client> PrintInfo() //لسه
         //{
-           
+
         //}
 
     }

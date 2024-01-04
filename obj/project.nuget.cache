@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QKxV+VM34I3vT7SYlKf6KI8I8xQ7DuqK+6V1UXEMszg0KC0exJhJjAz87yXUKqn47QhgETvr8su/LJzbrg8TCA==",
+  "dgSpecHash": "cI9qJFS2juOccRrokIkACN8dSSVTuNqUnXiyY7jlc679zZzk4BQcXjS3d60IOncn3c5F7JEf3+Jvmsw4kqfUxA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\drnad\\Source\\Repos\\Bank_System\\Main.csproj",
+  "projectFilePath": "C:\\Users\\drnad\\source\\repos\\Bank_System\\Main.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\drnad\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],

@@ -7,35 +7,32 @@ using System.Threading.Tasks;
 
 namespace Main
 {
-    public class Employee:Person
+    public class Employee : Person
     {
         //Atttibutes
 
-        public double Salary {  get; set; }
-       
+        public double Salary { get; set; }
+
         const string filePath = "C:\\Users\\drnad\\Source\\Repos\\Bank_System\\clients.json";
         public List<Client> Clients;
         //Static Attribute
-        static int EmpCount {  get; set; }
+        static int EmpCount { get; set; }
 
         //Constructor
-        public Employee(int id,string name, string password, double salary) : base(id,name, password)
+        public Employee(int id, string name, string password, double salary) : base(id, name, password)
         {
-           
+
             Salary = salary;
             Clients = LoadData();
 
         }
 
         //Abstracted Method
-<<<<<<< HEAD
-        
-=======
         protected override void idIncrement()
         {
             EmpCount++;
             Id = EmpCount;
-            
+
         }
         //Methods
 
@@ -56,8 +53,8 @@ namespace Main
 
         private void SaveData()
         {
-        var Json = JsonConvert.SerializeObject(Clients, Formatting.Indented);
-        File.WriteAllText(filePath, Json);
+            var Json = JsonConvert.SerializeObject(Clients, Formatting.Indented);
+            File.WriteAllText(filePath, Json);
 
         }
 
@@ -68,7 +65,7 @@ namespace Main
                 Console.WriteLine("Client already exists.");
                 return;
             }
-            Client newClient = new Client (name ,pass,balance,isDebit)
+            Client newClient = new Client(name, pass, balance, isDebit)
             {
                 Name = name,
                 Password = pass,
@@ -82,7 +79,7 @@ namespace Main
             Console.WriteLine("Client added successfully.");
         }
 
-        public void DeleteClient (string name)
+        public void DeleteClient(string name)
         {
             Client client = Clients.FirstOrDefault(c => c.Name == name);
             if (client != null)
@@ -118,31 +115,8 @@ namespace Main
             {
                 Console.WriteLine($" Client Name: {c.Name}, Balance: {c.Balance}, Account Type: {c.AccountType()}");
             }
-            
-            
-        }
 
-        //Methods
-        public void AddClient(string name, string pass, double balance, bool isDebit)
-        {
-            Client c = new Client(name,pass,balance,isDebit);
+
         }
-        public void Withdraw(double amount, ref Client c)
-        {
-            c.Withdraw(amount);
-        }
-        public void Deposit(double amount, ref Client c)
-        {
-            c.Deposit(amount);
-        }
-        public void TransferTo(ref Client c1, double amount, ref Client c2)
-        {
-            c1.TransferTo(amount, ref c2);
-        }
-        public void PrintEmpInfo()
-        {
-            Console.WriteLine($"Name : {Name}\nId : {Id}\nSalary : {Salary}\n=================================== ");
-        }
->>>>>>> fadcb9481ed5d9c16b2e2ef05bf5dbda40e88be3
     }
 }

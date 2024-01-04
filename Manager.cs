@@ -14,7 +14,7 @@ namespace Bank_System
     {
         const string FilePath = "C:\\Users\\drnad\\Source\\Repos\\Bank_System\\employee.json";
         public static List<Employee> employees;  //data member
-       
+
         private static List<Employee> LoadData()
         {
             if (File.Exists(FilePath))
@@ -30,13 +30,12 @@ namespace Bank_System
         }
         private static void SaveData()
         {
-            var json= JsonConvert.SerializeObject(employees,Formatting.Indented);
+            var json = JsonConvert.SerializeObject(employees, Formatting.Indented);
             File.WriteAllText(FilePath, json);
 
         }
         public static void AddEmployee(Employee employee)
         {
-            employees = LoadData();
             if (employees.Any(e => e.Id == employee.Id))
             {
                 Console.WriteLine("Employee already exists.");
@@ -48,14 +47,14 @@ namespace Bank_System
             Console.WriteLine("Employee added successfully.");
         }
 
-        public static void DeleteEmployee(int id) 
-        { 
+        public static void DeleteEmployee(int id)
+        {
 
-            Employee emp=employees.FirstOrDefault(e => e.Id == id);
+            Employee emp = employees.FirstOrDefault(e => e.Id == id);
             if (emp != null)
             {
                 employees.Remove(emp);
-                SaveData() ;
+                SaveData();
                 Console.WriteLine($"Employee with ID {id} removed successfully.");
 
             }

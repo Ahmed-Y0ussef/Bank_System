@@ -8,15 +8,7 @@ namespace Main
     {
         static void Main()
         {
-        
-            m1.DeleteEmployee(1);
-            foreach (var em in m1.employees)
-            {
-                Console.WriteLine(em.Name);
-                Console.WriteLine(em.Password);
-                Console.WriteLine(em.Id);
 
-            }
             // Welcome
             Console.WriteLine(
 @"
@@ -34,7 +26,7 @@ namespace Main
             ");
 
 
-            
+
             //Bank System or ATM
             Console.WriteLine("1- Bank System\n2- ATM\nselect option from ( 1 - 2 )");
             int userInput = int.Parse(Console.ReadLine());
@@ -58,8 +50,8 @@ namespace Main
         {
             Login();
             Console.WriteLine("1- Wihdraw\n2- Deposit\n3- Transfer\n4- Check Balance\n5- Shaw my informaion\nselect option from ( 1 - 2 - 3 - 4 - 5 )");
-            int userInput=int.Parse(Console.ReadLine());
-            switch(userInput)
+            int userInput = int.Parse(Console.ReadLine());
+            switch (userInput)
             {
                 case 1:
                     break;
@@ -82,7 +74,7 @@ namespace Main
         static void BankSystem()
         {
             Console.WriteLine("1- Client\n2- Employee\n3- Manager\nselect option from ( 1 - 2 - 3 )");
-            int userInput=int.Parse(Console.ReadLine());
+            int userInput = int.Parse(Console.ReadLine());
             switch (userInput)
             {
                 case 1:
@@ -105,41 +97,41 @@ namespace Main
         static void Login()
         {
             Console.WriteLine("enter your id:");
-            int id=int.Parse(Console.ReadLine());
+            int id = int.Parse(Console.ReadLine());
             Console.WriteLine("enter your password:");
-            string password =Console.ReadLine();
+            string password = Console.ReadLine();
 
-            
-        
+        }
+
         //Manger
         static void Manage()
         {
             Login();
             Console.WriteLine("1- Add employee\n2- Remove employee\n Select option(1-2)");
             int managerInput = int.Parse(Console.ReadLine());
+
+            switch (managerInput)
+            {
+                case 1:
+                    Console.WriteLine("enter name of the employee");
+                    string empName = Console.ReadLine();
+                    Console.WriteLine("enter password for the employee");
+                    string empPassword = Console.ReadLine();
                     Console.WriteLine("enter salary for the employee");
                     double empSalary = double.Parse(Console.ReadLine());
 
                     Console.WriteLine("enter id for the Employee");
                     int empId = int.Parse(Console.ReadLine());
-                    Employee emp = new Employee(empId, empName, empPassword,empSalary);
+                    Employee emp = new Employee(empId, empName, empPassword, empSalary);
                     Manager.AddEmployee(emp);
 
-                case 1:
-                    Console.WriteLine("enter name of the employee");
-                    string empName = Console.ReadLine();
-                    Console.WriteLine("enter password for the employee");
-                     Manager.DeleteEmployee(empIdDeleted);
-                    string empPassword = Console.ReadLine();
-                    Employee emp= new Employee(empName, empPassword);
-                    m1.AddEmployee(emp);
-                    
                     break;
                 case 2:
                     Console.WriteLine("enter employee id");
                     int empIdDeleted = int.Parse(Console.ReadLine());
+                    Manager.DeleteEmployee(empIdDeleted);
                     break;
-                default: 
+                default:
                     Console.WriteLine("invalid input try again ");
                     Manage();
                     break;
@@ -151,7 +143,7 @@ namespace Main
             Login();
             Console.WriteLine("1- Add Account\n2- Delete Account\n3- Withdraw\n4- Deposit\n5- Transfer \n6- Show employee info");
             int empInput = int.Parse(Console.ReadLine());
-            switch (empInput) 
+            switch (empInput)
             {
                 case 1:
                     Console.Write("Enter client Name: ");
@@ -179,14 +171,14 @@ namespace Main
                     break;
 
                 case 2:
-                
+
                     Console.Write("Enter client name to delete: ");
                     string clientNameToDelete = Console.ReadLine();
                     employee.DeleteClient(clientNameToDelete);
                     break;
 
                 case 3:
-               
+
                     Console.Write("Enter client name for withdrawal: ");
                     string withdrawClientName = Console.ReadLine();
                     Client withdrawClient = employee.Clients.FirstOrDefault(c => c.Name == withdrawClientName);
@@ -235,7 +227,7 @@ namespace Main
                     break;
 
                 case 5:
-               
+
                     Console.Write("Enter source client name for transfer: ");
                     string sourceClientName = Console.ReadLine();
                     Client sourceClient = employee.Clients.FirstOrDefault(c => c.Name == sourceClientName);
@@ -268,17 +260,25 @@ namespace Main
                         Console.WriteLine($"Source client {sourceClientName} not found.");
                     }
 
-                break;
+                    break;
 
                 case 6:
 
                     employee.PrintEmpInfo();
-                break;
+                    break;
 
                 default:
                     Console.WriteLine("Invalid input. Please try again.");
                     Emp();
                     break;
+            }
+        }
+
+        //Client
+        static void Client()
+        {
+            Client client = new Client(1,"Ahmed", "123", 5000, true);
+            Login();
             Console.WriteLine("1- Withdraw\n2- Deposite\n3- Transfer\n4- Nearest atm location \n5- Show Info");
 
             int clientInput = int.Parse(Console.ReadLine());
@@ -286,13 +286,13 @@ namespace Main
             switch (clientInput)
             {
                 case 1:
-                    
+
                     Console.Write("Enter withdrawal amount: ");
                     double withdrawalAmount;
                     if (double.TryParse(Console.ReadLine(), out withdrawalAmount))
                     {
                         client.Withdraw(withdrawalAmount);
-                        
+
                     }
                     else
                     {
@@ -301,13 +301,13 @@ namespace Main
                     break;
 
                 case 2:
-                    
+
                     Console.Write("Enter deposit amount: ");
                     double depositAmount;
                     if (double.TryParse(Console.ReadLine(), out depositAmount))
                     {
                         client.Deposit(depositAmount);
-                        
+
                     }
                     else
                     {
@@ -316,7 +316,7 @@ namespace Main
                     break;
 
                 case 3:
-                   
+
                     Console.Write("Enter target client name for transfer: ");
                     string targetClientName = Console.ReadLine();
                     Client targetClient = client.Clients.FirstOrDefault(c => c.Name == targetClientName);
@@ -327,7 +327,7 @@ namespace Main
                         if (double.TryParse(Console.ReadLine(), out transferAmount))
                         {
                             client.TransferTo(transferAmount, ref targetClient);
-                          
+
                         }
                         else
                         {
@@ -346,7 +346,7 @@ namespace Main
                     break;
 
                 //case 5:
-                    
+
                 //    List<Client> clients = client.PrintInfo();
                 //    foreach (var c in clients)
                 //    {
@@ -358,14 +358,6 @@ namespace Main
                     Console.WriteLine("Invalid option");
                     break;
             }
-        }
-
-        //Client
-        static void Client()
-        {
-            Client client = new Client("Ahmed", "123", 5000, true);
-            Login();
-            Console.WriteLine("1-withdraw\n2-deposite\n3-transfer\n4-nearest atm location");
         }
     }
 }
