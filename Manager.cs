@@ -12,6 +12,9 @@ namespace Bank_System
     public static class Manager
     {
         const string FilePath = "D:\\ITI\\c#\\DAY07\\Bank System\\employee.json";
+        /// <summary>
+        /// //////
+        /// </summary>
         public static List<Employee> employees ; //data member
         
         private static List<Employee> LoadData()
