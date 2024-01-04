@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ITI\\c#\\DAY07\\Bank System\\Main.csproj": {}
+    "D:\\Projects\\Bank_System\\Main.csproj": {}
   },
   "projects": {
-    "D:\\ITI\\c#\\DAY07\\Bank System\\Main.csproj": {
+    "D:\\Projects\\Bank_System\\Main.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ITI\\c#\\DAY07\\Bank System\\Main.csproj",
+        "projectUniqueName": "D:\\Projects\\Bank_System\\Main.csproj",
         "projectName": "Main",
-        "projectPath": "D:\\ITI\\c#\\DAY07\\Bank System\\Main.csproj",
-        "packagesPath": "C:\\Users\\ahmed\\.nuget\\packages\\",
-        "outputPath": "D:\\ITI\\c#\\DAY07\\Bank System\\obj\\",
+        "projectPath": "D:\\Projects\\Bank_System\\Main.csproj",
+        "packagesPath": "C:\\Users\\Carnival\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\Bank_System\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Carnival\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
