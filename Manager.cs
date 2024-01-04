@@ -1,5 +1,6 @@
 ﻿using Main;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,15 +10,12 @@ using System.Threading.Tasks;
 
 namespace Bank_System
 {
-    public class Manager
+    public static class Manager
     {
-        const string FilePath = "employee.json";
-        public List<Employee> employees ;
-        public Manager() 
-        { 
-            employees=LoadData();
-        }
-        private List<Employee> LoadData()
+        const string FilePath = "C:\\Users\\drnad\\Source\\Repos\\Bank_System\\employee.json";
+        public static List<Employee> employees;  //data member
+       
+        private static List<Employee> LoadData()
         {
             if (File.Exists(FilePath))
             {
@@ -30,13 +28,13 @@ namespace Bank_System
             }
             return new List<Employee>();
         }
-        private void SaveData()
+        private static void SaveData()
         {
-            var json= JsonConvert.SerializeObject(employees);
+            var json= JsonConvert.SerializeObject(employees,Formatting.Indented);
             File.WriteAllText(FilePath, json);
 
         }
-        public void AddEmployee(Employee employee)
+        public static void AddEmployee(Employee employee)
         {
             if (employees.Any(e => e.Id == employee.Id))
             {
@@ -48,9 +46,10 @@ namespace Bank_System
             SaveData();
             Console.WriteLine("Employee added successfully.");
         }
-        public void DeleteEmployee(int id) 
+
+        public static void DeleteEmployee(int id) 
         { 
-            
+
             Employee emp=employees.FirstOrDefault(e => e.Id == id);
             if (emp != null)
             {
@@ -61,9 +60,6 @@ namespace Bank_System
             }
             else
                 Console.WriteLine($"Employee not found");
-            
-
-
         }
     }
 }

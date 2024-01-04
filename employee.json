@@ -1,0 +1,26 @@
+[
+  {
+    "Salary": 0.0,
+    "Id": 1,
+    "Name": "Khaled",
+    "Password": "123"
+  },
+  {
+    "Salary": 0.0,
+    "Id": 2,
+    "Name": "Ahmed",
+    "Password": "123"
+  },
+  {
+    "Salary": 2000.0,
+    "Id": 3,
+    "Name": "hend",
+    "Password": "123"
+  },
+  {
+    "Salary": 1000.0,
+    "Id": 4,
+    "Name": "mona",
+    "Password": "1"
+  }
+]

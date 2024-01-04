@@ -29,3 +29,20 @@ D:\Projects\Bank_System\obj\Debug\net7.0\ref\Main.dll
 D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\Main.csproj.AssemblyReference.cache
 D:\ITI\c#\DAY07\Bank System\bin\Debug\net7.0\Newtonsoft.Json.dll
 D:\ITI\c#\DAY07\Bank System\obj\Debug\net7.0\Main.csproj.CopyComplete
+C:\Users\drnad\Source\Repos\Bank_System\bin\Debug\net7.0\Main.exe
+C:\Users\drnad\Source\Repos\Bank_System\bin\Debug\net7.0\Main.deps.json
+C:\Users\drnad\Source\Repos\Bank_System\bin\Debug\net7.0\Main.runtimeconfig.json
+C:\Users\drnad\Source\Repos\Bank_System\bin\Debug\net7.0\Main.dll
+C:\Users\drnad\Source\Repos\Bank_System\bin\Debug\net7.0\Main.pdb
+C:\Users\drnad\Source\Repos\Bank_System\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\drnad\Source\Repos\Bank_System\obj\Debug\net7.0\Main.csproj.AssemblyReference.cache
+C:\Users\drnad\Source\Repos\Bank_System\obj\Debug\net7.0\Main.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\drnad\Source\Repos\Bank_System\obj\Debug\net7.0\Main.AssemblyInfoInputs.cache
+C:\Users\drnad\Source\Repos\Bank_System\obj\Debug\net7.0\Main.AssemblyInfo.cs
+C:\Users\drnad\Source\Repos\Bank_System\obj\Debug\net7.0\Main.csproj.CoreCompileInputs.cache
+C:\Users\drnad\Source\Repos\Bank_System\obj\Debug\net7.0\Main.csproj.CopyComplete
+C:\Users\drnad\Source\Repos\Bank_System\obj\Debug\net7.0\Main.dll
+C:\Users\drnad\Source\Repos\Bank_System\obj\Debug\net7.0\refint\Main.dll
+C:\Users\drnad\Source\Repos\Bank_System\obj\Debug\net7.0\Main.pdb
+C:\Users\drnad\Source\Repos\Bank_System\obj\Debug\net7.0\Main.genruntimeconfig.cache
+C:\Users\drnad\Source\Repos\Bank_System\obj\Debug\net7.0\ref\Main.dll

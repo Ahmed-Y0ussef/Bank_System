@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,24 +14,36 @@ namespace Main
         public bool IsDebit { get; set; }
 
         //Static Attribute
-        static int clientCount {  get; set; }
+        static int clientCount { get; set; }
+
+
+        const string FilePath = "C:\\Users\\drnad\\Source\\Repos\\Bank_System\\clients.json";
+        public  List<Client> Clients;
 
         //Constructor        
-        public Client(string name, string password, double balance, bool isDebit) :base(name, password)
+        public Client(int id,string name, string password, double balance, bool isDebit) : base (id,name, password)
         {
+        
             this.Balance = balance;
             this.IsDebit = isDebit;
-            idIncrement();
+           
+            
         }
 
-        //Abstracted Method
+        //Methods
+
         protected override void idIncrement()
         {
             clientCount++;
             Id = clientCount;
         }
 
-        //Methods
+        private void SaveData()
+        {
+            var Json = JsonConvert.SerializeObject(Clients, Formatting.Indented);
+            File.WriteAllText(FilePath, Json);
+        }
+
         public void Withdraw (double amount)
         {
             if (IsDebit)
@@ -38,7 +51,7 @@ namespace Main
                 if (amount > 0)
                 {
                     Balance -= amount;
-                    Console.WriteLine("opearation is done successfully");
+                    Console.WriteLine($"Withdrawal of {amount} done successfully");
                 }
                 else
                     Console.WriteLine("please enter valid amount");
@@ -48,7 +61,7 @@ namespace Main
                 if (amount > 0 && amount <= Balance)
                 {
                     Balance -= amount;
-                    Console.WriteLine("opearation is done successfully");
+                    Console.WriteLine($"Withdrawal of {amount} done successful");
                 }
                 else
                     Console.WriteLine("please enter valid amount (your balance may be not enough)");
@@ -59,7 +72,7 @@ namespace Main
             if (amount > 0)
             {
                 Balance += amount;
-                Console.WriteLine("opearation is done successfully");
+                Console.WriteLine($"Deposit of {amount} done successful");
             }
             else
                 Console.WriteLine("please enter valid amount");
@@ -70,7 +83,7 @@ namespace Main
             {
                 Balance -= amount;
                 c.Deposit(amount);
-                Console.WriteLine("opearation is done successfully");
+                Console.WriteLine($"Transfer of {amount} to {c} successful.");
             }
             else
                 Console.WriteLine("please enter valid amount");
@@ -86,9 +99,11 @@ namespace Main
             else
                 return "Debit";
         }
-        public void PrintInfo()
-        {
-            Console.WriteLine($"Name : {Name}\nId : {Id}\nBalance : {Balance}\nCard Type : {AccountType()}\n===================================");
-        }
+
+        //public  List<Client> PrintInfo() //لسه
+        //{
+           
+        //}
+
     }
 }

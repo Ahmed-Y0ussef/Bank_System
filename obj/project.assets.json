@@ -55,19 +55,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ahmed\\.nuget\\packages\\": {}
+    "C:\\Users\\drnad\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ITI\\c#\\DAY07\\Bank System\\Main.csproj",
+      "projectUniqueName": "C:\\Users\\drnad\\Source\\Repos\\Bank_System\\Main.csproj",
       "projectName": "Main",
-      "projectPath": "D:\\ITI\\c#\\DAY07\\Bank System\\Main.csproj",
-      "packagesPath": "C:\\Users\\ahmed\\.nuget\\packages\\",
-      "outputPath": "D:\\ITI\\c#\\DAY07\\Bank System\\obj\\",
+      "projectPath": "C:\\Users\\drnad\\Source\\Repos\\Bank_System\\Main.csproj",
+      "packagesPath": "C:\\Users\\drnad\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\drnad\\Source\\Repos\\Bank_System\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\drnad\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -114,16 +114,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\ITI\\c#\\DAY07\\Bank System\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
