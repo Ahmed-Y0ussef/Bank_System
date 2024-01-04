@@ -36,6 +36,7 @@ namespace Bank_System
         }
         public static void AddEmployee(Employee employee)
         {
+            employees = LoadData();
             if (employees.Any(e => e.Id == employee.Id))
             {
                 Console.WriteLine("Employee already exists.");

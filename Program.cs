@@ -9,6 +9,14 @@ namespace Main
         static void Main()
         {
         
+            m1.DeleteEmployee(1);
+            foreach (var em in m1.employees)
+            {
+                Console.WriteLine(em.Name);
+                Console.WriteLine(em.Password);
+                Console.WriteLine(em.Id);
+
+            }
             // Welcome
             Console.WriteLine(
 @"
@@ -101,7 +109,7 @@ namespace Main
             Console.WriteLine("enter your password:");
             string password =Console.ReadLine();
 
-        }
+            
         
         //Manger
         static void Manage()
@@ -109,14 +117,6 @@ namespace Main
             Login();
             Console.WriteLine("1- Add employee\n2- Remove employee\n Select option(1-2)");
             int managerInput = int.Parse(Console.ReadLine());
-            
-            switch(managerInput)
-            {
-                case 1:
-                    Console.WriteLine("enter name of the employee");
-                    string empName = Console.ReadLine();
-                    Console.WriteLine("enter password for the employee");
-                    string empPassword = Console.ReadLine();
                     Console.WriteLine("enter salary for the employee");
                     double empSalary = double.Parse(Console.ReadLine());
 
@@ -125,11 +125,19 @@ namespace Main
                     Employee emp = new Employee(empId, empName, empPassword,empSalary);
                     Manager.AddEmployee(emp);
 
+                case 1:
+                    Console.WriteLine("enter name of the employee");
+                    string empName = Console.ReadLine();
+                    Console.WriteLine("enter password for the employee");
+                     Manager.DeleteEmployee(empIdDeleted);
+                    string empPassword = Console.ReadLine();
+                    Employee emp= new Employee(empName, empPassword);
+                    m1.AddEmployee(emp);
+                    
                     break;
                 case 2:
                     Console.WriteLine("enter employee id");
                     int empIdDeleted = int.Parse(Console.ReadLine());
-                     Manager.DeleteEmployee(empIdDeleted);
                     break;
                 default: 
                     Console.WriteLine("invalid input try again ");
@@ -271,14 +279,6 @@ namespace Main
                     Console.WriteLine("Invalid input. Please try again.");
                     Emp();
                     break;
-            }
-        }
-
-        //Client
-        static void Client()
-        {
-            Client client = new Client("Ahmed", "123", 5000, true);
-            Login();
             Console.WriteLine("1- Withdraw\n2- Deposite\n3- Transfer\n4- Nearest atm location \n5- Show Info");
 
             int clientInput = int.Parse(Console.ReadLine());
@@ -358,6 +358,14 @@ namespace Main
                     Console.WriteLine("Invalid option");
                     break;
             }
+        }
+
+        //Client
+        static void Client()
+        {
+            Client client = new Client("Ahmed", "123", 5000, true);
+            Login();
+            Console.WriteLine("1-withdraw\n2-deposite\n3-transfer\n4-nearest atm location");
         }
     }
 }

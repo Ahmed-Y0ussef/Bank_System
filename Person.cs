@@ -21,7 +21,5 @@ namespace Main
             this.Password = password;
         }
 
-        //Abstracted Method
-        protected abstract void idIncrement();       
     }
 }
