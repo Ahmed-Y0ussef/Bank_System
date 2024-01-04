@@ -20,11 +20,10 @@ namespace Main
         const string FilePath = "C:\\Users\\drnad\\Source\\Repos\\Bank_System\\clients.json";
         public List<Client> Clients; //data member
         //Constructor        
-        public Client(string name, string password, double balance, bool isDebit) :base(name, password)
+        public Client(int id,string name, string password, double balance, bool isDebit) :base(id,name, password)
         {
             this.Balance = balance;
             this.IsDebit = isDebit;
-            idIncrement();
 
             // Serialize the instance to JSON
             string json = JsonConvert.SerializeObject(Clients, Formatting.Indented);
@@ -33,12 +32,7 @@ namespace Main
             Console.WriteLine(FilePath, json);
         }
 
-        //Abstracted Method
-        protected override void idIncrement()
-        {
-            clientCount++;
-            Id = clientCount;
-        }
+        
 
         //Methods
         public void Withdraw (double amount)

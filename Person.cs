@@ -14,13 +14,12 @@ namespace Main
         public string Password {  get; set; }
 
         //Constructor
-        public Person( string name, string password)
+        public Person(int id ,string name, string password)
         {
+            this.Id = id;
             this.Name = name;
             this.Password = password;
         }
 
-        //Abstracted Method
-        protected abstract void idIncrement();       
     }
 }

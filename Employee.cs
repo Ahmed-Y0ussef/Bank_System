@@ -15,16 +15,12 @@ namespace Main
         static int EmpCount {  get; set; }
 
         //Constructor
-        public Employee(string name, string password) :base(name, password) 
+        public Employee(int id,string name, string password) :base(id,name, password) 
         {
-            idIncrement(); 
+
         }
 
         //Abstracted Method
-        protected override void idIncrement()
-        {
-            EmpCount++;
-            Id = EmpCount;
-        }
+        
     }
 }

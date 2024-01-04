@@ -9,16 +9,12 @@ using System.Threading.Tasks;
 
 namespace Bank_System
 {
-    public class Manager
+    public static class Manager
     {
-        const string FilePath = "C:\\Users\\drnad\\Source\\Repos\\Bank_System\\employee.json";
-        public List<Employee> employees ; //data member
-        public Manager() 
-        { 
-            employees=LoadData(); //this constructor is ensuring that when a Manager object is created,
-                                  //its employees list is populated with some initial data
-        } 
-        private List<Employee> LoadData()
+        const string FilePath = "D:\\ITI\\c#\\DAY07\\Bank System\\employee.json";
+        public static List<Employee> employees ; //data member
+        
+        private static List<Employee> LoadData()
         {
             if (File.Exists(FilePath))
             {
@@ -31,14 +27,15 @@ namespace Bank_System
             }
             return new List<Employee>();
         }
-        private void SaveData()
+        private static void SaveData()
         {
             var json= JsonConvert.SerializeObject(employees,Formatting.Indented);
             File.WriteAllText(FilePath, json);
 
         }
-        public void AddEmployee(Employee employee)
+        public static void AddEmployee(Employee employee)
         {
+            employees = LoadData();
             if (employees.Any(e => e.Id == employee.Id))
             {
                 Console.WriteLine("Employee already exists.");
@@ -49,9 +46,9 @@ namespace Bank_System
             SaveData();
             Console.WriteLine("Employee added successfully.");
         }
-        public void DeleteEmployee(int id) 
-        { 
-            
+        public static void DeleteEmployee(int id) 
+        {
+            employees = LoadData();
             Employee emp=employees.FirstOrDefault(e => e.Id == id);
             if (emp != null)
             {

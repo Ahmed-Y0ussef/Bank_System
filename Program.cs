@@ -8,15 +8,7 @@ namespace Main
     {
         static void Main()
         {
-            //Manager m1= new Manager();
-            //m1.DeleteEmployee(1);
-            //foreach (var em in m1.employees)
-            //{
-            //    Console.WriteLine(em.Name);
-            //    Console.WriteLine(em.Password);
-            //    Console.WriteLine(em.Id);
-
-            //}
+            
             // Welcome
             Console.WriteLine(
 @"
@@ -117,7 +109,6 @@ namespace Main
             Login();
             Console.WriteLine("1-add employee\n2-remove employee\nselect option(1-2)");
             int managerInput = int.Parse(Console.ReadLine());
-            Manager m1 =new Manager();
             switch(managerInput)
             {
                 case 1:
@@ -126,13 +117,16 @@ namespace Main
                     string empName = Console.ReadLine();
                     Console.WriteLine("enter password for the employee");
                     string empPassword = Console.ReadLine();
-                    Employee emp= new Employee(empName, empPassword);
-                    m1.AddEmployee(emp);
+                    Console.WriteLine("enter id for the Employee");
+                    int empId= int.Parse(Console.ReadLine());
+                    Employee emp= new Employee(empId,empName, empPassword);
+                   Manager.AddEmployee(emp);
                     
                     break;
                 case 2:
                     Console.WriteLine("enter employee id");
                     int empIdDeleted = int.Parse(Console.ReadLine());
+                    Manager.DeleteEmployee(empIdDeleted);
                     break;
                 default: 
                     Console.WriteLine("invalid input try again ");
