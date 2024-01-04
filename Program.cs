@@ -8,15 +8,15 @@ namespace Main
     {
         static void Main()
         {
-            Manager m1= new Manager();
-            m1.DeleteEmployee(1);
-            foreach (var em in m1.employees)
-            {
-                Console.WriteLine(em.Name);
-                Console.WriteLine(em.Password);
-                Console.WriteLine(em.Id);
+            //Manager m1= new Manager();
+            //m1.DeleteEmployee(1);
+            //foreach (var em in m1.employees)
+            //{
+            //    Console.WriteLine(em.Name);
+            //    Console.WriteLine(em.Password);
+            //    Console.WriteLine(em.Id);
 
-            }
+            //}
             // Welcome
             Console.WriteLine(
 @"
@@ -172,7 +172,7 @@ namespace Main
         static void Client( )
         {
             Login();
-            Console.WriteLine("1-withdraw\n2-deposite\n3-transfer\n4-nearest atm location");
+            Console.WriteLine("1-withdraw\n2-deposite\n3-transfer\n4-nearest atm location \n5-show Info");
         }
     }
 }

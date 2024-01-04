@@ -17,7 +17,7 @@ namespace Main
         //Constructor
         public Employee(string name, string password) :base(name, password) 
         {
-            idIncrement();
+            idIncrement(); 
         }
 
         //Abstracted Method

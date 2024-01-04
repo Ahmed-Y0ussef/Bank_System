@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,12 +16,21 @@ namespace Main
         //Static Attribute
         static int clientCount {  get; set; }
 
+
+        const string FilePath = "C:\\Users\\drnad\\Source\\Repos\\Bank_System\\clients.json";
+        public List<Client> Clients; //data member
         //Constructor        
         public Client(string name, string password, double balance, bool isDebit) :base(name, password)
         {
             this.Balance = balance;
             this.IsDebit = isDebit;
             idIncrement();
+
+            // Serialize the instance to JSON
+            string json = JsonConvert.SerializeObject(Clients, Formatting.Indented);
+
+            // Display the serialized JSON
+            Console.WriteLine(FilePath, json);
         }
 
         //Abstracted Method
@@ -86,9 +96,22 @@ namespace Main
             else
                 return "Debit";
         }
-        public void PrintInfo()
+        public static List<Client> PrintInfo()
         {
-            Console.WriteLine($"Name : {Name}\nId : {Id}\nBalance : {Balance}\nCard Type : {AccountType()}\n===================================");
+            //Console.WriteLine($"Name : {Name}\nId : {Id}\nBalance : {Balance}\nCard
+            //Type : {AccountType()}\n===================================");
+            if (File.Exists(FilePath))
+            {
+                var file = new FileInfo(FilePath);
+                if (file.Length > 0)
+                {
+                    string json = File.ReadAllText(FilePath);
+                    return JsonConvert.DeserializeObject<List<Client>>(json);
+                }
+            }
+
+            return new List<Client>();
         }
+
     }
 }

@@ -11,12 +11,13 @@ namespace Bank_System
 {
     public class Manager
     {
-        const string FilePath = "employee.json";
-        public List<Employee> employees ;
+        const string FilePath = "C:\\Users\\drnad\\Source\\Repos\\Bank_System\\employee.json";
+        public List<Employee> employees ; //data member
         public Manager() 
         { 
-            employees=LoadData();
-        }
+            employees=LoadData(); //this constructor is ensuring that when a Manager object is created,
+                                  //its employees list is populated with some initial data
+        } 
         private List<Employee> LoadData()
         {
             if (File.Exists(FilePath))
@@ -32,7 +33,7 @@ namespace Bank_System
         }
         private void SaveData()
         {
-            var json= JsonConvert.SerializeObject(employees);
+            var json= JsonConvert.SerializeObject(employees,Formatting.Indented);
             File.WriteAllText(FilePath, json);
 
         }
