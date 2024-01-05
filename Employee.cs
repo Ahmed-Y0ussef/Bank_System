@@ -21,19 +21,13 @@ namespace Main
         }
 
         //Abstracted Method
-<<<<<<< HEAD
         
-=======
-        protected override void idIncrement()
-        {
-            EmpCount++;
-            Id = EmpCount;
-        }
+        
 
         //Methods
-        public void AddClient(string name, string pass, double balance, bool isDebit)
+        public void AddClient(int id ,string name, string pass, double balance, bool isDebit)
         {
-            Client c = new Client(name,pass,balance,isDebit);
+            Client c = new Client(id,name,pass,balance,isDebit);
         }
         public void Withdraw(double amount, ref Client c)
         {
@@ -49,8 +43,7 @@ namespace Main
         }
         public void PrintEmpInfo()
         {
-            Console.WriteLine($"Name : {Name}\nId : {Id}\nSalary : {Salary}\n=================================== ");
+            Console.WriteLine($"Name : {Name}\nId : {Id}\nSalary : {Salary}\n ");
         }
->>>>>>> fadcb9481ed5d9c16b2e2ef05bf5dbda40e88be3
     }
 }

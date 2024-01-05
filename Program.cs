@@ -100,6 +100,15 @@ namespace Main
             int id=int.Parse(Console.ReadLine());
             Console.WriteLine("enter your password:");
             string password =Console.ReadLine();
+            if (Manager.LoadData().Any(x => x.Id == id) && Manager.LoadData().Any(e=> e.Password==password))
+            {
+                Console.WriteLine("login successfully");
+            }
+            else
+            {
+                Console.WriteLine("invalid ID or password try again");
+                Login();
+            }
 
         }
         
