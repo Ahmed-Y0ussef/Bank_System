@@ -1,4 +1,6 @@
-﻿using System;
+
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,28 +8,82 @@ using System.Threading.Tasks;
 
 namespace Main
 {
-    public class Employee:Person
+    public class Employee : Person
     {
         //Atttibutes
-        public double Salary {  get; set; }
 
+        public double Salary { get; set; }
+
+        const string filePath = @"D:\ITI\\Bank_System\clients.json";
+        public List<Client> Clients;
         //Static Attribute
-        static int EmpCount {  get; set; }
+        static int EmpCount { get; set; }
 
         //Constructor
-        public Employee(int id,string name, string password) :base(id,name, password) 
+        public Employee(int id, string name, string password, double salary) : base(id, name, password)
         {
+
+            Salary = salary;
+            Clients=LoadData();
+        }
+
+        
+        //Methods
+
+        private List<Client> LoadData()
+        {
+            if (File.Exists(filePath))
+            {
+                var file = new FileInfo(filePath);
+                if (file.Length > 0)
+                {
+                    string json = File.ReadAllText(filePath);
+                    return JsonConvert.DeserializeObject<List<Client>>(json);
+                }
+            }
+
+            return new List<Client>();
+        }
+
+        private void SaveData()
+        {
+            var Json = JsonConvert.SerializeObject(Clients, Formatting.Indented);
+            File.WriteAllText(filePath, Json);
 
         }
 
-        //Abstracted Method
-        
-        
-
-        //Methods
-        public void AddClient(int id ,string name, string pass, double balance, bool isDebit)
+        public void AddClient(int id,string name, string pass, double balance, bool isDebit)
         {
-            Client c = new Client(id,name,pass,balance,isDebit);
+            if (Clients.Any(c => c.Name == name))
+            {
+                Console.WriteLine("Client already exists.");
+                return;
+            }
+            Client newClient = new Client(id,name, pass, balance, isDebit)
+            {
+                Name = name,
+                Password = pass,
+                Balance = balance,
+                IsDebit = isDebit
+            };
+
+            Clients.Add(newClient);
+            SaveData();
+            Console.WriteLine("Client added successfully.");
+        }
+
+        public void DeleteClient(string name)
+        {
+            Client client = Clients.FirstOrDefault(c => c.Name == name);
+            if (client != null)
+            {
+                Clients.Remove(client);
+                SaveData();
+                Console.WriteLine($"Client {name} is removed successfully.");
+
+            }
+            else
+                Console.WriteLine($"Employee not found");
         }
         public void Withdraw(double amount, ref Client c)
         {
@@ -43,7 +99,17 @@ namespace Main
         }
         public void PrintEmpInfo()
         {
-            Console.WriteLine($"Name : {Name}\nId : {Id}\nSalary : {Salary}\n ");
+            Console.WriteLine($"Name: {Name}");
+            Console.WriteLine($"Id: {Id}");
+            Console.WriteLine($"Salary: {Salary}");
+
+            Console.WriteLine("Clients:");
+            foreach (var c in Clients)
+            {
+                Console.WriteLine($" Client Name: {c.Name}, Balance: {c.Balance}, Account Type: {c.AccountType()}");
+            }
+
+
         }
     }
 }

@@ -10,39 +10,42 @@ namespace Main
     public class Client : Person
     {
         //Atttibutes
-        public double Balance {  get; set; }
+        public double Balance { get; set; }
         public bool IsDebit { get; set; }
 
         //Static Attribute
-        static int clientCount {  get; set; }
+        static int clientCount { get; set; }
 
 
-        const string FilePath = "C:\\Users\\drnad\\Source\\Repos\\Bank_System\\clients.json";
-        public List<Client> Clients; //data member
+        const string FilePath = @"D:\ITI\Bank_System\employee.json";
+        public List<Client> Clients;
+
         //Constructor        
-        public Client(int id,string name, string password, double balance, bool isDebit) :base(id,name, password)
+        public Client(int id, string name, string password, double balance, bool isDebit) : base(id, name, password)
         {
+
             this.Balance = balance;
             this.IsDebit = isDebit;
-
-            // Serialize the instance to JSON
-            string json = JsonConvert.SerializeObject(Clients, Formatting.Indented);
-
-            // Display the serialized JSON
-            Console.WriteLine(FilePath, json);
         }
+
+        //Methods
 
         
 
-        //Methods
-        public void Withdraw (double amount)
+        private void SaveData()
+        {
+            var Json = JsonConvert.SerializeObject(Clients, Formatting.Indented);
+            File.WriteAllText(FilePath, Json);
+        }
+
+        public void Withdraw(double amount)
         {
             if (IsDebit)
             {
                 if (amount > 0)
                 {
                     Balance -= amount;
-                    Console.WriteLine("opearation is done successfully");
+                    Console.WriteLine($"Withdrawal of {amount} done successfully");
                 }
                 else
                     Console.WriteLine("please enter valid amount");
@@ -52,7 +55,7 @@ namespace Main
                 if (amount > 0 && amount <= Balance)
                 {
                     Balance -= amount;
-                    Console.WriteLine("opearation is done successfully");
+                    Console.WriteLine($"Withdrawal of {amount} done successful");
                 }
                 else
                     Console.WriteLine("please enter valid amount (your balance may be not enough)");
@@ -63,7 +66,7 @@ namespace Main
             if (amount > 0)
             {
                 Balance += amount;
-                Console.WriteLine("opearation is done successfully");
+                Console.WriteLine($"Deposit of {amount} done successful");
             }
             else
                 Console.WriteLine("please enter valid amount");
@@ -74,14 +77,14 @@ namespace Main
             {
                 Balance -= amount;
                 c.Deposit(amount);
-                Console.WriteLine("opearation is done successfully");
+                Console.WriteLine($"Transfer of {amount} to {c} successful.");
             }
             else
                 Console.WriteLine("please enter valid amount");
         }
         public double GetBalance()
         {
-            return Balance; 
+            return Balance;
         }
         public string AccountType()
         {
@@ -90,22 +93,11 @@ namespace Main
             else
                 return "Debit";
         }
-        public static List<Client> PrintInfo()
-        {
-            //Console.WriteLine($"Name : {Name}\nId : {Id}\nBalance : {Balance}\nCard
-            //Type : {AccountType()}\n===================================");
-            if (File.Exists(FilePath))
-            {
-                var file = new FileInfo(FilePath);
-                if (file.Length > 0)
-                {
-                    string json = File.ReadAllText(FilePath);
-                    return JsonConvert.DeserializeObject<List<Client>>(json);
-                }
-            }
 
-            return new List<Client>();
-        }
+        //public  List<Client> PrintInfo() //لسه
+        //{
+
+        //}
 
     }
 }

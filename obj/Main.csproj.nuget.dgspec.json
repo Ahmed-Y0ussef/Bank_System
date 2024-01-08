@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ITI\\c#\\DAY07\\Bank System\\Main.csproj": {}
+    "D:\\ITI\\Bank_System\\Main.csproj": {}
   },
   "projects": {
-    "D:\\ITI\\c#\\DAY07\\Bank System\\Main.csproj": {
+    "D:\\ITI\\Bank_System\\Main.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ITI\\c#\\DAY07\\Bank System\\Main.csproj",
+        "projectUniqueName": "D:\\ITI\\Bank_System\\Main.csproj",
         "projectName": "Main",
-        "projectPath": "D:\\ITI\\c#\\DAY07\\Bank System\\Main.csproj",
+        "projectPath": "D:\\ITI\\Bank_System\\Main.csproj",
         "packagesPath": "C:\\Users\\ahmed\\.nuget\\packages\\",
-        "outputPath": "D:\\ITI\\c#\\DAY07\\Bank System\\obj\\",
+        "outputPath": "D:\\ITI\\Bank_System\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",

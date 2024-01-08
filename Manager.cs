@@ -1,5 +1,6 @@
 ﻿using Main;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,58 +12,70 @@ namespace Bank_System
 {
     public static class Manager
     {
-        const string FilePath = "D:\\ITI\\c#\\DAY07\\Bank System\\employee.json";
-        
+        const string FilePathEmp = @"D:\ITI\\Bank_System\employee.json";
+        const string FilePathManager = @"D:\ITI\\Bank_System\Managars.json";
+
+        public static List<Person> Managers = new List<Person>();
         public static List<Employee> employees ; //data member
         
-        public static List<Employee> LoadData()
+        public static List<Employee> LoadDataEmp()
         {
-            if (File.Exists(FilePath))
+            if (File.Exists(FilePathEmp))
             {
-                var file = new FileInfo(FilePath);
+                var file = new FileInfo(FilePathEmp);
                 if (file.Length > 0)
-                {
-                    string json = File.ReadAllText(FilePath);
+                { 
+                    string json = File.ReadAllText(FilePathEmp);
                     return JsonConvert.DeserializeObject<List<Employee>>(json);
                 }
             }
             return new List<Employee>();
         }
+        public static List<Person> LoadDataManger()
+        {
+            if (File.Exists(FilePathManager))
+            {
+                var file = new FileInfo(FilePathManager);
+                if (file.Length > 0)
+                {
+                    string json = File.ReadAllText(FilePathManager);
+                    return JsonConvert.DeserializeObject<List<Person>>(json);
+                }
+            }
+            return new List<Person>();
+        }
         private static void SaveData()
         {
-            var json= JsonConvert.SerializeObject(employees,Formatting.Indented);
-            File.WriteAllText(FilePath, json);
+            var json = JsonConvert.SerializeObject(Managers, Formatting.Indented);
+            File.WriteAllText(FilePathManager, json);
 
         }
         public static void AddEmployee(Employee employee)
-        {
-            employees = LoadData();
-            if (employees.Any(e => e.Id == employee.Id))
+        { 
+            Managers=LoadDataManger();
+            if (Managers.Any(e => e.Id == employee.Id))
             {
                 Console.WriteLine("Employee already exists.");
                 return;
             }
-
-            employees.Add(employee);
+            Managers.Add(employee);
             SaveData();
             Console.WriteLine("Employee added successfully.");
         }
-        public static void DeleteEmployee(int id) 
+
+        public static void DeleteEmployee(int id)
         {
-            employees = LoadData();
-            Employee emp=employees.FirstOrDefault(e => e.Id == id);
+            employees = LoadDataEmp();
+            Person emp = Managers.FirstOrDefault(e => e.Id == id);
             if (emp != null)
             {
-                employees.Remove(emp);
-                SaveData() ;
+                Managers.Remove(emp);
+                SaveData();
                 Console.WriteLine($"Employee with ID {id} removed successfully.");
 
             }
             else
                 Console.WriteLine($"Employee not found");
-            
-
-
         }
     }
 }
