@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "K79r78sJF35QfdRvDoFmmp35ziDLSa7GY8jgpX2NDrII2qVHyPkLVy4yTZegj/AeZvfbrO3W4y//neMwy5+qeg==",
+  "dgSpecHash": "Tw9vK0SixkNRW2XL/FLEafekBAmtYP5rmFqh9LYJG+Krg/j6RxdzCbnbyPIgXyHiE2r3WQPstxJb4geQUoAyjA==",
   "success": true,
   "projectFilePath": "D:\\ITI\\Bank_System\\Main.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ahmed\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\ahmed\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\ahmed\\.nuget\\packages\\spectre.console\\0.48.0\\spectre.console.0.48.0.nupkg.sha512",
+    "C:\\Users\\ahmed\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512"
   ],
   "logs": []
 }

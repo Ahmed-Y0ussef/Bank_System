@@ -1,37 +1,9 @@
 [
   {
-    "Clients": null,
-    "Salary": 0.0,
-    "Id": 2,
-    "Name": "Mariam",
-    "Password": "123"
-  },
-  {
-    "Clients": null,
-    "Salary": 0.0,
-    "Id": 3,
-    "Name": "Khaled",
-    "Password": "123"
-  },
-  {
-    "Clients": null,
-    "Salary": 0.0,
-    "Id": 4,
-    "Name": "Ahmed",
-    "Password": "123"
-  },
-  {
-    "Clients": null,
-    "Salary": 0.0,
-    "Id": 555,
+    "Salary": 3000.0,
+    "ManagerId": 1998,
+    "Id": 1,
     "Name": "kabo",
-    "Password": "555"
-  },
-  {
-    "Clients": null,
-    "Salary": 1111.0,
-    "Id": 1998,
-    "Name": "joo",
-    "Password": "1998"
+    "Password": "111"
   }
 ]

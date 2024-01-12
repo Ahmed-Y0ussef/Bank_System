@@ -1,50 +1,10 @@
 [
   {
-    "Clients": null,
-    "Balance": 444.0,
-    "IsDebit": false,
-    "Id": 1,
-    "Name": "s",
-    "Password": "22"
-  },
-  {
-    "Clients": null,
-    "Balance": 4444.0,
-    "IsDebit": false,
-    "Id": 0,
-    "Name": "saadeya",
-    "Password": "1"
-  },
-  {
-    "Clients": null,
-    "Balance": 99.0,
-    "IsDebit": false,
-    "Id": 0,
-    "Name": "noha",
-    "Password": "1"
-  },
-  {
-    "Clients": null,
-    "Balance": 2000.0,
-    "IsDebit": false,
-    "Id": 0,
-    "Name": "sama",
-    "Password": "2"
-  },
-  {
-    "Clients": null,
-    "Balance": 3000.0,
-    "IsDebit": false,
-    "Id": 0,
-    "Name": "lama",
-    "Password": "2"
-  },
-  {
-    "Clients": null,
-    "Balance": 5555.0,
+    "Balance": 1000.0,
     "IsDebit": true,
-    "Id": 5555,
-    "Name": "joo",
-    "Password": "5555"
+    "EmpId": 1,
+    "Id": 1,
+    "Name": "boda",
+    "Password": "1"
   }
 ]

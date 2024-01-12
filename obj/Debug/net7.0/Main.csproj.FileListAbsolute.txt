@@ -80,3 +80,4 @@ D:\ITI\Bank_System\obj\Debug\net7.0\refint\Main.dll
 D:\ITI\Bank_System\obj\Debug\net7.0\Main.pdb
 D:\ITI\Bank_System\obj\Debug\net7.0\Main.genruntimeconfig.cache
 D:\ITI\Bank_System\obj\Debug\net7.0\ref\Main.dll
+D:\ITI\Bank_System\bin\Debug\net7.0\Spectre.Console.dll
