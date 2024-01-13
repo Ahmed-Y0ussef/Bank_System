@@ -1,5 +1,6 @@
 ﻿using Main;
 using Newtonsoft.Json;
+using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -88,148 +89,169 @@ namespace Bank_System
                 Console.WriteLine(atm.AtmLocation);
         }
         public static void Atm()
+
         {
-            Client.Login();
-            Console.WriteLine("1- Wihdraw\n2- Deposit\n3- Transfer\n4- Check Balance\nselect option from ( 1 - 2 - 3 - 4  )");
-            int userInput = int.Parse(Console.ReadLine());
+            AnsiConsole.Write(new FigletText($"ohayo {Employee.Clients.FirstOrDefault(c => c.Id == Client.CurrentClientId).Name}").Color(Color.Yellow).Centered());
+
+            var userInput = AnsiConsole.Prompt(
+             new SelectionPrompt<string>()
+           .Title("select option from:")
+           .PageSize(4)
+           .AddChoices(new[] {
+            "1- Wihdraw", "2- Deposit","3- Transfer","4- Check Balance",
+        }));
             switch (userInput)
             {
-                case 1:
+                case "1- Wihdraw":
                     Client.Withdraw();
                     break;
-                case 2:
+                case "2- Deposit":
                     Client.Deposit();
                     break;
-                case 3:
-                    Client.TransferTo();
+                case "3- Transfer":
+                    Client.TransferToAtm();
                     break;
-                case 4:
-                    Client.GetBalance();
-                    break;
-                default:
-                    Console.WriteLine("invalid input try again");
-                    Atm();
+                case "4- Check Balance":
+                    Client.GetBalanceAtm();
                     break;
             }
         }
         public static void BankSystem()
         {
-            Console.WriteLine("1- Client\n2- Employee\n3- Manager\nselect option from ( 1 - 2 - 3 )");
-            int userInput = int.Parse(Console.ReadLine());
+            var userInput = AnsiConsole.Prompt(
+             new SelectionPrompt<string>()
+           .Title("select option from:")
+           .PageSize(3)
+           .AddChoices(new[] {
+            "1- Client", "2- Employee","3- Manager",
+        }));
             switch (userInput)
             {
-                case 1:
+                case "1- Client":
                     Client.Login();
                     ClientFunc();
                     break;
-                case 2:
+                case "2- Employee":
                     Employee.Login();
                     EmployeeFunc();
                     break;
-                case 3:
+                case "3- Manager":
                     Manager.Login();
                     ManagerFunc();
-                    break;
-                default:
-                    Console.WriteLine("invalid input try again");
-                    BankSystem();
                     break;
             }
         }
         public static void ManagerFunc()
         {
-            Console.WriteLine("1- Add employee\n2- Remove employee\n3- Add Atm\n4- Remove Atm\n5- update salary for employee\n Select option(1-2-3-4-5)");
-            int managerInput = int.Parse(Console.ReadLine());
+            AnsiConsole.Write(new FigletText($"ohayo {Manager.Managers.FirstOrDefault(m => m.Id == Manager.ManagerID).Name}").Color(Color.Yellow).Centered());
 
-            switch (managerInput)
+            var userInput = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+          .Title("select option from:")
+          .PageSize(6)
+          .AddChoices(new[] {
+            "1- Add employee", "2- Remove employee","3- Add Atm","4- Remove Atm","5- update salary for employee","6- Previous Menu",
+       }));
+
+            switch (userInput)
             {
-                case 1:
-
+                case "1- Add employee":
                     Manager.AddEmployee();
                     break;
-                case 2:
+                case "2- Remove employee":
                     Manager.DeleteEmployee();
                     break;
-                    case 3:
+                case "3- Add Atm":
                     Bank.AddAtm();
                     break; 
-                case 4:
+                case "4- Remove Atm":
                     Bank.DeleteAtm();
                     break;
-                case 5:
+                case "5- update salary for employee":
                     Manager.UpdateSalary();
                     break;
-                default:
-                    Console.WriteLine("invalid input try again ");
-                    ManagerFunc();
+                case "6- Previous Menu":
+                    BankSystem();
                     break;
             }
         }
         public static void EmployeeFunc()
         {
-            Console.WriteLine("1- Add Account\n2- Delete Account\n3- Withdraw\n4- Deposit\n5- Transfer \n6- Show Client info");
-            int empInput = int.Parse(Console.ReadLine());
-            switch (empInput)
+            AnsiConsole.Write(new FigletText($"ohayo {Manager.employees.FirstOrDefault(e => e.Id == Employee.empID).Name}").Color(Color.Yellow).Centered());
+            var userInput = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+          .Title("select option from:")
+          .PageSize(7)
+          .AddChoices(new[] {
+            "1- Add Account", "2- Remove Account","3- Withdraw","4- Deposit","5- Transfer","6- Show Client info","7- Previous Menu",
+       }));
+            switch (userInput)
             {
-                case 1:
+                case "1- Add Account":
                     Employee.AddClient();
                     break;
 
-                case 2:
+                case "2- Remove Account":
                     Employee.DeleteClient();
                     break;
 
-                case 3:
+                case "3- Withdraw":
                     Employee.Withdraw();
 
                     break;
 
-                case 4:
+                case "4- Deposit":
                     Employee.Deposit();
                     break;
 
-                case 5:
+                case "5- Transfer":
 
                     Employee.TransferTo();
 
                     break;
 
-                case 6:
+                case "6- Show Client info":
 
                     Employee.PrintClientInfo();
                     break;
-
-                default:
-                    Console.WriteLine("Invalid input. Please try again.");
-                    EmployeeFunc();
+                case "7- Previous Menu":
+                    BankSystem();
                     break;
+
             }
         }
         public static void ClientFunc()
         {
-            Console.WriteLine("1-Transfer\n2-Show Balance\n3-ATM Locations\n4-change or password\nselect option(1-2-3-4-5)");
+            AnsiConsole.Write(new FigletText($"ohayo {Employee.Clients.FirstOrDefault(e => e.Id == Client.CurrentClientId).Name}").Color(Color.Yellow).Centered());
 
-            int clientInput = int.Parse(Console.ReadLine());
+            var userInput = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+          .Title("select option from:")
+          .PageSize(5)
+          .AddChoices(new[] {
+            "1- Transfer", "2- Show Balance","3- ATM Locations","4- change ID or password","5- Previous Menu",
+       }));
 
-            switch (clientInput)
+
+            switch (userInput)
             {
-                case 1:
-                    Client.TransferTo();
+                case "1- Transfer":
+                    Client.TransferToSystem();
                     break;
-                case 2:
-                    Client.GetBalance();
+                case "2- Show Balance":
+                    Client.GetBalanceSystem();
                     break;
-                case 3:
+                case "3- ATM Locations":
                     ShowAtmLocation();
                     break;
-                case 4:
+                case "4- change ID or password":
                     Client.UpdatePassOrID();
                     break;
-                default:
-                    Console.WriteLine("Invalid option");
-                    ClientFunc();
+                case "5- Previous Menu":
+                    BankSystem();
                     break;
             }
         }
+
     }
 }

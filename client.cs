@@ -14,7 +14,7 @@ namespace Main
         //Atttibutes
         public double Balance { get; set; }
         public bool IsDebit { get; set; }
-        private static int CurrentClientId { get; set; }
+        public static int CurrentClientId { get; set; }
         public int EmpId { get; set; }
 
         //Static Attribute
@@ -35,7 +35,7 @@ namespace Main
         public static void Login()
         {
             Employee.Clients = Employee.LoadData();
-            Console.WriteLine("Enter your Id");
+            AnsiConsole.Write("Enter your Id");
             CurrentClientId = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter your password");
             string pass = Console.ReadLine();
@@ -44,24 +44,25 @@ namespace Main
                 AnsiConsole.Write(new FigletText("Login successfully").Color(Color.Yellow).Centered());
                 Thread.Sleep(1000);
                 Console.Clear();
-                AnsiConsole.Write(new FigletText($"ohayo {Employee.Clients.FirstOrDefault(c => c.Id == CurrentClientId).Name}").Color(Color.Yellow).Centered());
 
 
             }
             else
             {
-                Console.WriteLine("Invalid pass or Id\npress 1 o try again or 2 to get back to the previous menu");
-                int input = int.Parse(Console.ReadLine());
-                switch (input)
+                var userInput = AnsiConsole.Prompt(
+                new SelectionPrompt<string>()
+               .Title("select option from:")
+               .PageSize(4)
+               .AddChoices(new[] {
+               "1- Invalid pass or Id try again", "2- Previous Menu",
+                }));
+                switch (userInput)
                 {
-                    case 1:
-                        Console.Clear();
-
+                    case "1- Invalid pass or Id try again":
                         Login();
                         break;
-                    case 2:
+                    case "2- Previous Menu":
                         Console.Clear();
-
                         Bank.BankSystem();
                         break;
                 }
@@ -87,7 +88,7 @@ namespace Main
                 Console.WriteLine("Invalid input for withdrawal amount. Try again.");
             }
 
-            RollBack();
+            RollBackAtm();
         }
 
         public static void Deposit()
@@ -105,7 +106,7 @@ namespace Main
             {
                 Console.WriteLine("Invalid input for deposit amount. Try again.");
             }
-            RollBack();
+            RollBackAtm();
         }
         public static void TransferTo()
         {
@@ -132,12 +133,27 @@ namespace Main
             {
                 Console.WriteLine($"Target client {targetClientId} not found.");
             }
-            RollBack();
         }
-        public static void GetBalance()
+        public static void TransferToSystem()
+        {
+            TransferTo();
+            RollBackSystem();
+        }
+        public static void TransferToAtm()
+        {
+            TransferTo();
+            RollBackAtm();
+        }
+
+        public static void GetBalanceSystem()
         {
             Console.WriteLine($"your current Balance : {Employee.Clients.FirstOrDefault(c => c.Id == CurrentClientId).Balance}");
-            RollBack();
+            RollBackSystem();
+        }
+        public static void GetBalanceAtm()
+        {
+            Console.WriteLine($"your current Balance : {Employee.Clients.FirstOrDefault(c => c.Id == CurrentClientId).Balance}");
+            RollBackAtm();
         }
         public static void UpdatePassOrID() 
         {
@@ -155,23 +171,58 @@ namespace Main
                     break;
             }
             Employee.SaveData();
+            RollBackSystem();
         }
-        public static void RollBack()
+        public static void RollBackSystem()
         {
-            Console.WriteLine("press 1 to exit or 2 to get back tto the previous menu");
-            switch (int.Parse(Console.ReadLine()))
+            var userInput = AnsiConsole.Prompt(
+             new SelectionPrompt<string>()
+           .Title("select option from:")
+           .PageSize(4)
+           .AddChoices(new[] {
+            "1- Exit", "2- Previous Menu",
+        }));
+            switch (userInput)
             {
-                case 1:
+                case "1- Exit":
                     Console.Clear();
                     AnsiConsole.Write(new FigletText("THX For using our System").Color(Color.Yellow).Centered());
                     Environment.Exit(0);
 
                     break;
-                case 2:
+                case "2- Previous Menu":
                     Console.Clear();
                     Bank.ClientFunc();
+
                     break;
             }
+            
+
+        }
+        public static void RollBackAtm()
+        {
+            var userInput = AnsiConsole.Prompt(
+             new SelectionPrompt<string>()
+           .Title("select option from:")
+           .PageSize(4)
+           .AddChoices(new[] {
+            "1- Exit", "2- Previous Menu",
+        }));
+            switch (userInput)
+            {
+                case "1- Exit":
+                    Console.Clear();
+                    AnsiConsole.Write(new FigletText("THX For using our System").Color(Color.Yellow).Centered());
+                    Environment.Exit(0);
+
+                    break;
+                case "2- Previous Menu":
+                    Console.Clear();
+                    Bank.Atm();
+
+                    break;
+            }
+
 
         }
     }

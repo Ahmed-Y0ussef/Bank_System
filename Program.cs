@@ -8,27 +8,30 @@ namespace Main
     {
         static void Main()
         {
+            // el8y el clear w ozbat ba2y al select 
             Console.Clear();
-            //Console.Title = "Alpha Mind";
+            Console.Title = "Bank System";
             //Console.BackgroundColor = ConsoleColor.DarkBlue;
             //Console.ForegroundColor = ConsoleColor.Black;
 
             // Welcome
-            AnsiConsole.Write(new FigletText("Welcom To Our Bank").Color(Color.Yellow).Centered());
+            AnsiConsole.Write(new FigletText("Welcome To Our Bank").Color(Color.Yellow).Centered());
             //Bank System or ATM
-            Console.WriteLine("1- Bank System\n2- ATM\nselect option from ( 1 - 2 )");
-            int userInput = int.Parse(Console.ReadLine());
+            var userInput = AnsiConsole.Prompt(
+             new SelectionPrompt<string>()
+           .Title("select option from:")
+           .PageSize(3)
+           .AddChoices(new[] {
+            "1- Bank System", "2- ATM",
+        }));
             switch (userInput)
             {
-                case 1:
+                case "1- Bank System":
                     Bank.BankSystem();
                     break;
-                case 2:
+                case "2- ATM":
+                    Client.Login();
                     Bank.Atm();
-                    break;
-                default:
-                    Console.WriteLine("invalid input try again");
-                    Main();
                     break;
             }
         }  

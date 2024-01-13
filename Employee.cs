@@ -42,26 +42,28 @@ namespace Main
                 AnsiConsole.Write(new FigletText("Login successfully").Color(Color.Yellow).Centered());
                 Thread.Sleep(1000);
                 Console.Clear();
-                AnsiConsole.Write(new FigletText($"ohayo {Manager.employees.FirstOrDefault(e => e.Id == empID).Name}").Color(Color.Yellow).Centered());
 
             }
             else
             {
-                Console.WriteLine("Invalid pass or Id\npress 1 o try again or 2 to get back to the previous menu");
-                int input = int.Parse(Console.ReadLine());
-                switch (input)
+                var userInput = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+          .Title("select option from:")
+          .PageSize(4)
+          .AddChoices(new[] {
+            "1- Invalid pass or Id try again", "2- Previous Menu",
+       }));
+                switch (userInput)
                 {
-                    case 1:
-                        Console.Clear();
-
+                    case "1- Invalid pass or Id try again":
                         Login();
                         break;
-                    case 2:
+                    case "2- Previous Menu":
                         Console.Clear();
-
                         Bank.BankSystem();
                         break;
                 }
+               
             }
         }
         public static List<Client> LoadData()
@@ -247,19 +249,27 @@ namespace Main
         }
         public static void RollBack()
         {
-            Console.WriteLine("press 1 to exit or 2 to get back tto the previous menu");
-            switch (int.Parse(Console.ReadLine()))
+            var userInput = AnsiConsole.Prompt(
+             new SelectionPrompt<string>()
+           .Title("select option from:")
+           .PageSize(4)
+           .AddChoices(new[] {
+            "1- Exit", "2- Previous Menu",
+        }));
+            switch (userInput)
             {
-                case 1:
+                case "1- Exit":
                     Console.Clear();
                     Environment.Exit(0);
 
                     break;
-                case 2:
+                case "2- Previous Menu":
                     Console.Clear();
                     Bank.EmployeeFunc();
+
                     break;
             }
+           
         }
 
     }
