@@ -8,11 +8,8 @@ namespace Main
     {
         static void Main()
         {
-            // el8y el clear w ozbat ba2y al select 
             Console.Clear();
             Console.Title = "Bank System";
-            //Console.BackgroundColor = ConsoleColor.DarkBlue;
-            //Console.ForegroundColor = ConsoleColor.Black;
 
             // Welcome
             AnsiConsole.Write(new FigletText("Welcome To Our Bank").Color(Color.Yellow).Centered());

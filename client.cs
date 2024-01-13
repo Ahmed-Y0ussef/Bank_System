@@ -35,9 +35,9 @@ namespace Main
         public static void Login()
         {
             Employee.Clients = Employee.LoadData();
-            AnsiConsole.Write("Enter your Id");
+            AnsiConsole.Write("Enter your Id: ");
             CurrentClientId = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter your password");
+            Console.Write("Enter your password: ");
             string pass = Console.ReadLine();
             if (Employee.Clients.Any(c => c.Id == CurrentClientId) && Employee.Clients.Any(c => c.Password == pass))
             {
@@ -158,20 +158,49 @@ namespace Main
         public static void UpdatePassOrID() 
         {
             Employee.Clients = Employee.LoadData();
-            Console.WriteLine("press 1 to update password or 2 to update ID");
-            switch (int.Parse(Console.ReadLine()))
+            var userInput = AnsiConsole.Prompt(
+             new SelectionPrompt<string>()
+           .Title("select option from:")
+           .PageSize(3)
+           .AddChoices(new[] {
+            "1- Update password", "2- Update ID","3- Previouse Menu",
+        }));
+            switch (userInput)
             {
-                case 1:
-                    Console.WriteLine("Enter the new Password");
+                case "1- Update password":
+                    Console.WriteLine("Enter the new Password: ");
                     Employee.Clients.FirstOrDefault(c => c.Id == CurrentClientId).Password = Console.ReadLine();
                     break;
-                case 2:
-                    Console.WriteLine("Enter the new ID");
+                case "2- Update ID":
+                    Console.WriteLine("Enter the new ID: ");
                     Employee.Clients.FirstOrDefault(c => c.Id == CurrentClientId).Id=int.Parse(Console.ReadLine());
+                    break;
+                case "3- Previouse Menu":
+                    Console.Clear();
+                    Bank.ClientFunc();
                     break;
             }
             Employee.SaveData();
-            RollBackSystem();
+            var clientInput = AnsiConsole.Prompt(
+             new SelectionPrompt<string>()
+           .Title("select option from:")
+           .PageSize(3)
+           .AddChoices(new[] {
+            "1- Exit", "2- Previous Menu",
+        }));
+            switch (clientInput)
+            {
+                case "1- Exit":
+                    Console.Clear();
+                    AnsiConsole.Write(new FigletText("THX For using our System").Color(Color.Yellow).Centered());
+                    Environment.Exit(0);
+
+                    break;
+                case "2- Previous Menu":
+                    Client.UpdatePassOrID();
+
+                    break;
+            }
         }
         public static void RollBackSystem()
         {

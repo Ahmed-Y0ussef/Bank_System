@@ -96,7 +96,7 @@ namespace Bank_System
             var userInput = AnsiConsole.Prompt(
              new SelectionPrompt<string>()
            .Title("select option from:")
-           .PageSize(4)
+           .PageSize(5)
            .AddChoices(new[] {
             "1- Wihdraw", "2- Deposit","3- Transfer","4- Check Balance",
         }));
@@ -114,6 +114,7 @@ namespace Bank_System
                 case "4- Check Balance":
                     Client.GetBalanceAtm();
                     break;
+
             }
         }
         public static void BankSystem()
